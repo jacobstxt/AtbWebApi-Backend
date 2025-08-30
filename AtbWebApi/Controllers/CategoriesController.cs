@@ -22,6 +22,7 @@ public class CategoriesController(ICategoriesService categoriesService) : Contro
     {
         var result = await categoriesService.CreateAsync(model);
 
+
         return Ok(result);
     }
 
