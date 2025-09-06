@@ -22,8 +22,11 @@ public class CategoryCreateValidator : AbstractValidator<CategoryCreateModel>
             .MaximumLength(250).WithMessage("Слаг повинен містити не більше 250 символів")
             .MustAsync(async (slug, cancellation) =>
             {
+                if (string.IsNullOrWhiteSpace(slug))
+                    return true;
+
                 var normalized = slug.Trim().ToLower().Replace(" ", "-");
-                return !await db.Categories.AnyAsync(c => c.Slug == normalized, cancellation);
+                return !await db.Categories.AnyAsync(c => c.Slug == normalized && !c.IsDeleted, cancellation);
             })
             .WithMessage("Категорія з таким слагом вже існує");
     }
