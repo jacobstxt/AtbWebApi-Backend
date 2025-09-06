@@ -27,7 +27,7 @@ public class CategoriesService(
         return mapped;
     }
 
-    public async Task<CategoryItemModel> UpdateAsync(CategoryEditModel model)
+    public async Task<CategoryItemModel> EditAsync(CategoryEditModel model)
     {
 
         var existing = await context.Categories.FirstOrDefaultAsync(x => x.Id == model.Id);

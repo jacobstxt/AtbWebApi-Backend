@@ -26,11 +26,11 @@ public class CategoriesController(ICategoriesService categoriesService) : Contro
         return Ok(result);
     }
 
-    [HttpPut("update")]
+    [HttpPut("edit")]
     //[Authorize(Roles = Roles.Admin)]
-    public async Task<IActionResult> Update([FromForm] CategoryEditModel model)
+    public async Task<IActionResult> Edit([FromForm] CategoryEditModel model)
     {
-        var result = await categoriesService.UpdateAsync(model);
+        var result = await categoriesService.EditAsync(model);
 
         return Ok(result);
     }
@@ -50,4 +50,6 @@ public class CategoriesController(ICategoriesService categoriesService) : Contro
         await categoriesService.DeleteAsync(model);
         return Ok($"Category with id: {model.Id} deleted");
     }
+
+
 }

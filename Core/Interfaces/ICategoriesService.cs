@@ -8,6 +8,6 @@ public interface ICategoriesService
     Task<CategoryItemModel> GetByIdAsync(int id);
     Task<CategoryItemModel> GetBySlugAsync(string slug);
     Task<CategoryItemModel> CreateAsync(CategoryCreateModel model);
-    Task<CategoryItemModel> UpdateAsync(CategoryEditModel model);
+    Task<CategoryItemModel> EditAsync(CategoryEditModel model);
     Task DeleteAsync(CategoryDeleteModel model);
 }
