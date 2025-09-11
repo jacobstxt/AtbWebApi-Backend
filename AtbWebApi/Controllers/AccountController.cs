@@ -40,6 +40,6 @@ public class AccountController(IMapper mapper,
                 errors = "Registration failed"
             });
         }
-
     }
+
 }
